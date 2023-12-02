@@ -62,6 +62,7 @@ public class ManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
     @Test
     public void findConstructTest() {
         Manager newMan = new Manager(6);
@@ -73,7 +74,7 @@ public class ManagerTest {
         newMan.add(film6);
         newMan.add(film7);
 
-        PurchaseFilm[] expected = {film7, film6, film5, film4, film3,film2};
+        PurchaseFilm[] expected = {film7, film6, film5, film4, film3, film2};
         PurchaseFilm[] actual = newMan.findLast();
         Assertions.assertArrayEquals(expected, actual);
 
