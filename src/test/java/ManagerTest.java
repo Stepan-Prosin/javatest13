@@ -17,27 +17,64 @@ public class ManagerTest {
         man.add(film1);
         man.add(film2);
         man.add(film3);
-        man.add(film4);
-        man.add(film5);
-        man.add(film6);
-        man.add(film7);
+
 
     }
 
     @Test
     public void addTest() {
-
+        man.add(film4);
         PurchaseFilm[] actual = man.findAll();
-        PurchaseFilm[] expected = {film1, film2, film3, film4, film5, film6, film7};
+        PurchaseFilm[] expected = {film1, film2, film3, film4};
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void findLastLowLimitMinTest() {
+
+
+        PurchaseFilm[] expected = {film3, film2, film1};
+        PurchaseFilm[] actual = man.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 
     @Test
-    public void findLastTest() {
-        Manager manFiveFilms = new Manager(5);
+    public void findLastNormTest() {
+        man.add(film4);
+
+        man.add(film5);
+        PurchaseFilm[] expected = {film5, film4, film3, film2, film1};
+        PurchaseFilm[] actual = man.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void findLastUpLimitTest() {
+        man.add(film4);
+        man.add(film5);
+        man.add(film6);
+        man.add(film7);
+
         PurchaseFilm[] expected = {film7, film6, film5, film4, film3};
         PurchaseFilm[] actual = man.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void findConstructTest() {
+        Manager newMan = new Manager(6);
+        newMan.add(film1);
+        newMan.add(film2);
+        newMan.add(film3);
+        newMan.add(film4);
+        newMan.add(film5);
+        newMan.add(film6);
+        newMan.add(film7);
+
+        PurchaseFilm[] expected = {film7, film6, film5, film4, film3,film2};
+        PurchaseFilm[] actual = newMan.findLast();
         Assertions.assertArrayEquals(expected, actual);
 
     }
