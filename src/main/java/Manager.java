@@ -1,6 +1,6 @@
 public class Manager {
+    private final int lastFilmCount;
     private PurchaseFilm[] films = new PurchaseFilm[0];
-    private final int  lastFilmCount;
 
     public Manager() {
         this.lastFilmCount = 5;
@@ -25,13 +25,12 @@ public class Manager {
     public PurchaseFilm[] findLast() {
 
         PurchaseFilm[] all = findAll();
-int minLength ;
-if(all.length>=lastFilmCount){
-    minLength=lastFilmCount;
-}
-else{
-    minLength=all.length;
-}
+        int minLength;
+        if (all.length >= lastFilmCount) {
+            minLength = lastFilmCount;
+        } else {
+            minLength = all.length;
+        }
         PurchaseFilm[] reversed = new PurchaseFilm[minLength];
         for (int i = 0; i < minLength; i++) {
 
